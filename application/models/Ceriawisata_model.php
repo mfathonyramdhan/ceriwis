@@ -123,4 +123,22 @@ class Ceriawisata_model extends CI_Model
 	{
 		return $this->db->insert('tb_jadwal', $data);
 	}
+
+	function delSubmenu($where, $table)
+	{
+		$this->db->where($where);
+		$this->db->delete($table);
+	}
+
+	function delMenu($where, $table)
+	{
+		$this->db->where($where);
+		$this->db->delete($table);
+	}
+
+	function delPaket($where, $table)
+	{
+		$this->db->where($where);
+		$this->db->delete($table);
+	}
 }

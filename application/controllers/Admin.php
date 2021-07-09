@@ -282,4 +282,28 @@ class Admin extends CI_Controller
 			redirect('Admin/tambahJadwal/' . $this->input->post('id_pesanan'));
 		}
 	}
+
+	public function hapusSubmenu($id)
+	{
+		// $news = new 
+		$where = array('id' => $id);
+		$result = $this->Ceriawisata_model->delSubmenu($where, 'user_sub_menu');
+		redirect('Menu/submenu/');
+	}
+
+	public function hapusMenu($id)
+	{
+		// $news = new 
+		$where = array('id' => $id);
+		$result = $this->Ceriawisata_model->delMenu($where, 'user_menu');
+		redirect('Menu/index/');
+	}
+
+	public function hapusPaket($id)
+	{
+		// $news = new 
+		$where = array('id' => $id);
+		$result = $this->Ceriawisata_model->delPaket($where, 'tb_trayek');
+		redirect('Admin/paketWisata/');
+	}
 }
