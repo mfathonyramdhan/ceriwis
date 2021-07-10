@@ -69,6 +69,9 @@ class User extends CI_Controller
 		$keranjang = $this->cart->contents();
 
 		$id_user = $this->input->post('id_user');
+		$nama = $this->input->post('nama');
+		$email = $this->input->post('email');
+		$telp = $this->input->post('no_telp');
 		$lokasi_berangkat = $this->input->post('lokasi_berangkat');
 		$jml_pax = $this->input->post('jml_pax');
 		$tgl_mulai = $this->input->post('tgl_mulai');
@@ -79,6 +82,9 @@ class User extends CI_Controller
 
 		$data = array(
 			'id_user' => $id_user,
+			'nama_pemesan' => $nama,
+			'email_pemesan' => $email,
+			'telp_pemesan' => $telp,
 			'lokasi_berangkat' => $lokasi_berangkat,
 			'jml_pax' => $jml_pax,
 			'tgl_mulai' => $tgl_mulai,
