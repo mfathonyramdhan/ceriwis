@@ -277,6 +277,12 @@ class Admin extends CI_Controller
 		echo json_encode($data);
 	}
 
+	public function ambilPesanan($id)
+	{
+		$data = $this->Ceriawisata_model->getPesanan($id);
+		echo json_encode($data);
+	}
+
 	public function submitJadwal()
 	{
 		$data_jadwal = [];
@@ -335,5 +341,21 @@ class Admin extends CI_Controller
 		$where = array('id_tempat' => $id);
 		$result = $this->Ceriawisata_model->delWisata($where, 'tb_tempat');
 		redirect('Admin/paketWisata/');
+	}
+
+	public function editPesanan()
+	{
+		$update = [
+			'nama_pemesan' => htmlspecialchars($this->input->post('nama_pemesan', true)),
+			'email_pemesan' => htmlspecialchars($this->input->post('email_pemesan', true)),
+			'telp_pemesan' => htmlspecialchars($this->input->post('telp_pemesan', true))
+		];
+
+		$where = array(
+			'id_pesanan' => htmlspecialchars($this->input->post('id_pesanan', true))
+		);
+		$this->Ceriawisata_model->editPesanan($where, $update);
+
+		redirect('Admin');
 	}
 }
