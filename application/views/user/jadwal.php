@@ -32,7 +32,11 @@
 
                     <td><?= $d['nama_pemesan'] ?></td>
                     <td><?= $d['trayek'] ?></td>
-                    <td><?= $d['tgl_mulai'] ?></td>
+                    <td>
+
+                        <?php echo $newDate = date("d/m/Y", strtotime($d['tgl_selesai'])); ?>
+
+                    </td>
                     <td>
                         <abbr title="Lihat"> <a href="<?= base_url('User/detailjadwal/') . $d['id_pesanan'] ?>" class="btn btn-primary">Lihat Jadwal</a>
 
