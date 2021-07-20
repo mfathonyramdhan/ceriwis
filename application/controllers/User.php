@@ -130,7 +130,15 @@ class User extends CI_Controller
 		);
 
 		if ($this->db->affected_rows() > 0) {
-			$this->session->set_flashdata('msg', 'Data berhasil dikirim! Tunggu email konfirmasi!');
+			$this->session->set_flashdata(
+				'msg',
+				'
+			<div class="alert alert-success alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+			<h4><i class="icon fa fa-check"></i> Data berhasil dikirim, silahkan tunggu email konfirmasi! </h4>
+			</div>
+			'
+			);
 		}
 
 		redirect('user/pesanan');

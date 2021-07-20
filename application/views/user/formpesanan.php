@@ -4,7 +4,7 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Form Pemesanan Paket Wisata</h1>
 
-    <?php $this->view('alertMessage') ?>
+    <?= $this->session->flashdata('msg'); ?>
 
 
     <form action="<?= base_url('User/inputpesanan'); ?>" method="post">

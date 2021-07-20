@@ -181,7 +181,9 @@ class Admin extends CI_Controller
 			'id_tempat' => htmlspecialchars($this->input->post('id_tempat', true))
 		);
 		$this->Ceriawisata_model->editWisata($where, $update);
-
+		if ($this->db->affected_rows() > 0) {
+			$this->session->set_flashdata('msg', '<div class="alert alert-success" role="alert"> Data berhasil di update.</div>');
+		}
 		redirect('Admin/tempatwisata/' . $this->input->post('kode'));
 	}
 
