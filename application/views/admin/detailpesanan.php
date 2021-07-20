@@ -41,7 +41,7 @@
                         <label>Nama</label>
                     </div>
                     <div class="col-md-8">
-                        <p>: <?= $detail_pesanan['nama'] ?></p>
+                        <p>: <?= $detail_pesanan['nama_pemesan'] ?></p>
                     </div>
                 </div>
                 <div class="row">
@@ -49,7 +49,7 @@
                         <label>No.HP</label>
                     </div>
                     <div class="col-md-8">
-                        <p>: <?= $detail_pesanan['no_telp'] ?></p>
+                        <p>: <?= $detail_pesanan['telp_pemesan'] ?></p>
                     </div>
                 </div>
                 <div class="row">
@@ -57,7 +57,7 @@
                         <label>Email</label>
                     </div>
                     <div class="col-md-8">
-                        <p>: <?= $detail_pesanan['email'] ?></p>
+                        <p>: <?= $detail_pesanan['email_pemesan'] ?></p>
                     </div>
                 </div>
             </div>
