@@ -55,6 +55,7 @@ class User extends CI_Controller
 	//FORM INPUT PESANAN PAKET WISATA USER
 	public function pesanan()
 	{
+		$this->cart->destroy();
 		$data['title'] = 'Pemesanan Paket';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['trayek'] = $this->db->get_where('tb_trayek')->result_array();
@@ -150,6 +151,7 @@ class User extends CI_Controller
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['trayek'] = $this->db->get_where('tb_trayek')->result_array();
 		$data['data_pesanan'] =  $this->Ceriawisata_model->getDataPesanan();
+		$data['data_pesanan_admin'] =  $this->Ceriawisata_model->getDataPesananAdmin();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
@@ -186,8 +188,14 @@ class User extends CI_Controller
 		echo json_encode($data);
 	}
 
+	public function hapusKeranjang()
+	{
+		$this->cart->destroy();
+	}
+
 	public function getDestinasi()
 	{
+		// $this->hapusKeranjang();
 		$id = $this->input->post('id');
 		$data = $this->Ceriawisata_model->getDestinasi($id);
 		echo json_encode($data);
@@ -241,6 +249,12 @@ class User extends CI_Controller
 			'qty' => 0,
 		);
 		$this->cart->update($data);
+		echo $this->showCart();
+	}
+
+	public function resetCart()
+	{
+		$this->cart->destroy();
 		echo $this->showCart();
 	}
 }

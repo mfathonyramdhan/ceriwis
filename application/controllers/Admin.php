@@ -15,7 +15,7 @@ class Admin extends CI_Controller
 		$data['title'] = 'Daftar Pesanan';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 
-		$data['data_pesanan'] =  $this->Ceriawisata_model->getDataPesanan();
+		$data['data_pesanan'] =  $this->Ceriawisata_model->getDataPesananAdmin();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
