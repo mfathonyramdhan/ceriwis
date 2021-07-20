@@ -1,8 +1,10 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+
 class User extends CI_Controller
 {
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -42,6 +44,7 @@ class User extends CI_Controller
 		$data['trayek'] = $this->Ceriawisata_model->gettempatwisata($id);
 		$data['tempat'] = $this->Ceriawisata_model->getTempat($id);
 
+
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
@@ -66,6 +69,7 @@ class User extends CI_Controller
 	//INPUT DATA PESANAN PAKET WISATA USER
 	public function inputpesanan()
 	{
+
 		$keranjang = $this->cart->contents();
 
 		$id_user = $this->input->post('id_user');
@@ -78,7 +82,7 @@ class User extends CI_Controller
 		$tgl_selesai = $this->input->post('tgl_selesai');
 		$trayek = $this->input->post('trayek');
 		$total = $this->cart->total();
-		
+
 
 		$data = array(
 			'id_user' => $id_user,
@@ -91,7 +95,6 @@ class User extends CI_Controller
 			'tgl_selesai' => $tgl_selesai,
 			'trayek' => $trayek,
 			'total_harga' => $total
-			
 		);
 
 		// $data['datalokasi'] = $this->Ceriawisata_model->getdatapesanan();
@@ -110,9 +113,8 @@ class User extends CI_Controller
 			$this->Ceriawisata_model->tambahJadwal($o);
 		}
 
-			
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data berhasil dikirim! Tunggu email konfirmasi!</div>');
-		redirect('user/index');
+
+
 
 		$this->form_validation->set_rules(
 			'nama',
@@ -126,6 +128,12 @@ class User extends CI_Controller
 			'required',
 			['required' => '%s harap dipilih']
 		);
+
+		if ($this->db->affected_rows() > 0) {
+			$this->session->set_flashdata('msg', 'Data berhasil dikirim! Tunggu email konfirmasi!');
+		}
+
+		redirect('user/pesanan');
 	}
 
 	public function jadwal()
