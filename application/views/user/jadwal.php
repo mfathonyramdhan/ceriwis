@@ -8,6 +8,11 @@
         <thead>
             <tr>
                 <th scope="col">No.</th>
+
+                <!-- debug mode -->
+                <th scope="col">Role</th>
+                <!-- end debug mode -->
+
                 <th scope="col">Nama</th>
                 <th scope="col">Trayek</th>
                 <th scope="col">Tanggal Kegiatan</th>
@@ -20,7 +25,12 @@
             <?php foreach ($data_pesanan as $d) { ?>
                 <tr>
                     <td><?= $no++ ?></td>
-                    <td><?= $d['nama'] ?></td>
+
+                    <!-- debug mode -->
+                    <td><?= $d['nama']  ?></td>
+                    <!-- end debug mode -->
+
+                    <td><?= $d['nama_pemesan'] ?></td>
                     <td><?= $d['trayek'] ?></td>
                     <td><?= $d['tgl_mulai'] ?></td>
                     <td>
