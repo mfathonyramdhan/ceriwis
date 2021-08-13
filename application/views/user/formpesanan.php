@@ -27,7 +27,7 @@
                             <label for="nama">Nama</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="far fa-id-card"></i></span>
-                                <input type="text" name="nama" class="form-control" aria-describedby="basic-addon1" placeholder="Masukkan Nama" required>
+                                <input type="text" name="nama" class="form-control" aria-describedby="basic-addon1" placeholder="Masukkan Nama" value="<?= set_value('nama') ?>" required>
                                 <?= form_error('Nama', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
 
@@ -98,9 +98,12 @@
                         </div>
                     </div>
                 </div>
+                <span class="text-danger">
+                    <p>* Biaya berlaku untuk hitungan normal 3d2n, jika lebih akan ada tambahan biaya!</p>
+                </span>
                 <div id="bali">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label>Kendaraan</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-car"></i></span>
@@ -109,13 +112,20 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label>Hotel</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-bed"></i></span>
                                 <select class="form-control" aria-describedby="basic-addon1" name="hotel" id="hotel">
                                     <option selected disabled>Pilih Hotel</option>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Harga Per Orang</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-male"></i></span>
+                                <input type="text" class="form-control" aria-describedby="basic-addon1" name="hargaperorang" id="hargaperorang" readonly>
                             </div>
                         </div>
                     </div>
@@ -135,7 +145,9 @@
             <div class="card-body">
                 <b style="font-weight: 800;">Checkout Harga</b><br>
                 <hr>
-
+                <span class="text-danger">
+                    <p>* Maksimal 5 Destinasi Yang Dapat Dipilih!</p>
+                </span>
                 <div class="row">
                     <div class="col" style="max-width: 400px;">
                         <div class="card">
@@ -228,7 +240,7 @@
                     var i;
                     html += "<option selected disabled>Pilih Hotel</option>"
                     for (i = 0; i < data.length; i++) {
-                        html += '<option value="' + data[i].kode_hotel + '">' + data[i].nama_hotel + ' - ' + data[i].harga + ' per orang</option>';
+                        html += '<option value="' + data[i].kode_hotel + '">' + data[i].nama_hotel;
                     }
                     $('#hotel').html(html);
                 }
@@ -250,6 +262,10 @@
                     var harga = data.harga;
                     var jml_pax = $('#jml_pax').val();
                     var total_harga = harga * jml_pax;
+                    $('#hargaperorang').val(new Intl.NumberFormat("id-ID", {
+                        style: "currency",
+                        currency: "IDR"
+                    }).format(harga));
                     $('#total').val(total_harga);
                     $('#total_harga').val(new Intl.NumberFormat("id-ID", {
                         style: "currency",
