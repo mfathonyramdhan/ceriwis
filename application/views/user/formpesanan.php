@@ -99,7 +99,7 @@
                     </div>
                 </div>
                 <span class="text-danger">
-                    <p>* Biaya berlaku untuk hitungan normal 3d2n, jika lebih akan ada tambahan biaya!</p>
+                    <p>* Biaya berlaku untuk hitungan normal 3 hari 2 malam, jika lebih akan ada tambahan biaya!</p>
                 </span>
                 <div id="bali">
                     <div class="row">
@@ -135,6 +135,37 @@
                         <input type="text" class="form-control" name="total_harga" id="total_harga" aria-describedby="basic-addon1" readonly>
                     </div>
                 </div>
+                <b>Harga sudah termasuk Fasilitas : </b>
+                <div class="row">
+
+                    <div class="col">
+
+                        <ol>
+                            <li>Executive Bus Pariwisata AC, 2LCD, DVD, Karaoke, Reclining seat formasi 2-2</li>
+                            <li>Menginap 2 malam di Hotel Area Kuta (sekamar berdua)</li>
+                            <li>Makan disajikan sebanyak 8 (Delapan) kali Full Buffet</li>
+                            <li>Snack disajikan 1 (satu) kali pada saat pemberangkatan dari Pasuruan</li>
+                            <li>AQUA 600 ml kami siapkan dalam bis</li>
+                            <li>YOU-C 100 pada hari pertama saat di Bali dan POCARI SWEAT dihari kedua</li>
+                            <li>Romantic Dinner Jimbaran ( Sea Food Menu + Kepiting &amp; Kelapa Muda )</li>
+                            <li>Entertainment ( Sound system, Electone dan 1 Singer )</li>
+
+                        </ol>
+                    </div>
+                    <div class="col">
+
+                        <ol start="9">
+                            <li>Surprise untuk peserta yang lagi merayakan Ultah / Ultah Perkawinan</li>
+                            <li>Asuransi Jiwa dari Perusahaan Asuransi Jiwa Jasa Raharja</li>
+                            <li>Tour Leader dan Guide Lokal Bali dari CERIA WISATA T&amp;T</li>
+                            <li>Spanduk wisata dari CERIA WISATA T&amp;T</li>
+                            <li>Perlengkapan PPPK dan obat-obatan ringan</li>
+                            <li>Biaya Reservasi ( Biaya konfirmasi pemesanan transportasi, hotel, restauran dil)</li>
+                            <li>Donasi (Tips, makan &amp; penginapan Crew Bus, Tips Guide, Parkir, Retribusi dll)</li>
+                        </ol>
+
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -143,7 +174,7 @@
 
         <div class="card shadow mb-4" id="destinasi">
             <div class="card-body">
-                <b style="font-weight: 800;">Checkout Harga</b><br>
+                <b style="font-weight: 800;">Pilih Destinasi Wisata</b><br>
                 <hr>
                 <span class="text-danger">
                     <p>* Maksimal 5 Destinasi Yang Dapat Dipilih!</p>
@@ -190,6 +221,11 @@
                                         </tbody>
 
                                     </table>
+                                    <center class="mt-5">
+                                        <button type="reset" class="btn btn-outline-danger" style="margin-right: 10px;">Reset</button>
+
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                    </center>
                                 </div>
                             </div>
                         </div>
@@ -202,10 +238,7 @@
 
 
 
-        <center class="mt-5">
-            <button type="reset" class="btn btn-danger">Reset</button>
-            <button type="submit" class="btn btn-primary">Simpan</button>
-        </center>
+
     </form>
 </div>
 
@@ -290,7 +323,7 @@
                     var i;
                     html += "<option selected disabled>Pilih Kendaraan</option>"
                     for (i = 0; i < data.length; i++) {
-                        html += '<option value="' + data[i].kode_kendaraan + '">' + data[i].nama_kendaraan + ' - ' + data[i].kapasitas + ' Orang</option>';
+                        html += '<option value="' + data[i].kode_kendaraan + '">' + data[i].nama_kendaraan + ' (Kapasitas Maks. ' + data[i].kapasitas + ' Orang)</option>';
                     }
                     $('#kendaraan').html(html);
                 }
