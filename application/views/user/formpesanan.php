@@ -200,7 +200,7 @@
                                     <hr>
                                 </div>
 
-                                <div id="destinasi_wrapper" style="overflow: scroll; height: 300px; ">
+                                <div id="destinasi_wrapper" style="overflow: scroll; height: 600px; ">
                                 </div>
                             </div>
 
