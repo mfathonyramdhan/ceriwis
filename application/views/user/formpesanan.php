@@ -16,7 +16,7 @@
                 <div class="card-block">
                     <div class="row">
                         <div class="col-md-6 text-left">
-                            <b style="font-weight: 800;">Destinasi</b><br>
+                            <b style="font-weight: 800;">Identitas & Detail Pemesanan</b><br>
                         </div>
                     </div>
                     <hr />
@@ -166,6 +166,17 @@
 
                     </div>
                 </div>
+                <hr>
+                <div class="foodnote">
+                    
+                <label for="exampleFormControlTextarea1">Catatan untuk makanan</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Contoh : 1 orang alergi daging ayam, request menu sate kambing. "></textarea>
+                            
+                        </div>
+
+                    </div>
             </div>
         </div>
 
@@ -189,7 +200,7 @@
                                     <hr>
                                 </div>
 
-                                <div id="destinasi_wrapper" style="overflow: scroll; height: 600px; ">
+                                <div id="destinasi_wrapper" style="overflow: scroll; height: 300px; ">
                                 </div>
                             </div>
 
